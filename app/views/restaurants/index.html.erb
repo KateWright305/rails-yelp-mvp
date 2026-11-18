@@ -1,3 +1,5 @@
 <h1>Restaurants</h1>
 
-<%= render "form", restaurant: @restaurant %>
+<%= render "form_display", restaurants: @restaurants %>
+
+<%= link_to "Add restaurant", restaurants_new_path, class: "btn btn-primary" %>
