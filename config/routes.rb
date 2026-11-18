@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "restaurants/:id", to: "restaurants#show", as: :restaurant
 
   get "restaurants/:restaurant_id/reviews/new", to: "reviews#new"
-  post "restaurants/:restaurant_id/reviews", to: "reviews#create"
+  post "restaurants/:restaurant_id/reviews", to: "reviews#create", as: :restaurant_reviews
 end
