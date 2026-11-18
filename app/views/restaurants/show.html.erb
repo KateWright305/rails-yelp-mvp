@@ -1,21 +1,22 @@
-<h1><%= @restaurant.name %></h1>
+<div class="container">
+  <h1 class="my-3"><%= @restaurant.name %></h1>
 
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
+  <p><strong>Location: </strong><%= @restaurant.address %></p>
+  <p><strong>Phone number: </strong><%= @restaurant.phone_number %></p>
+  <p><strong>Type: </strong><%= @restaurant.category %></p>
 
-<ul>
-<% @restaurant.reviews.each do |review| %>
-  <li><%= review.content %></li>
-  <li><%= review.rating %></li>
-<% end %>
-</ul>
+  <p><strong>Reviews:</strong></h3>
+  <ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.content %> - <%= review.rating %>/5
+    </li>
+  <% end %>
+  </ul>
 
-<p><strong>Add a review</strong></h3>
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit %>
-<% end %>
+  <p class="mt-5"><strong>Add a review:</strong></p>
 
-<%= link_to "Back to Restaurants", restaurants_path, class: "btn btn-primary" %>
+  <%= render "reviews/form_review", restaurant: @restaurant, review: @review %>
+
+  <%= link_to "Back to Restaurants", restaurants_path, class: "btn btn-primary mt-3" %>
+</div>
